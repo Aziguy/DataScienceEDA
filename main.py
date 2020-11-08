@@ -23,11 +23,11 @@ def main():
 	elif selection == "Visualisation":
 		st.subheader("The best visualization of year ^_^")
 	elif selection == "A propos":
-		st.subheader("Team presentation")
-		components.html(hp.pied_de_page(),height=500)
+		#st.subheader("Team presentation")
+		components.html(hp.pied_de_page(),height=800)
 		#components.iframe('http://www.ingemedia.net/',height=1000, scrolling=True)
 	else:
-		components.html(hp.entete_de_page(), height=500)
+		components.html(hp.entete_de_page(), height=1800)
 
 if __name__ == '__main__':
 	main()
