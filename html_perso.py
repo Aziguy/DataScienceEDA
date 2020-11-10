@@ -43,7 +43,7 @@ def entete_de_page():
 	  			</div>
 	  			<!-- Code for the third card -->
 	  			<div class="card">
-	    			<img class="card-img-top rounded-circle img-fluid" src="https://media-exp1.licdn.com/dms/image/C4E35AQG2cU-zk63l1A/profile-framedphoto-shrink_200_200/0?e=1604962800&v=beta&t=CpnRmuX1KxlYL2kKs0tNXq8OBFn2OtciXjs7-3AIpS8" alt="...">
+	    			<img class="card-img-top rounded-circle img-fluid" src="https://media-exp1.licdn.com/dms/image/C5603AQGR0FvgXG3Wpw/profile-displayphoto-shrink_200_200/0?e=1610582400&v=beta&t=ITFov0I8NubvPNuHHxc1c3j4-QiqglU0Nx7qS_sHNJM" alt="...">
 	    			<div class="card-body">
 	      				<h5 class="card-title">Thomas Touil</h5>
 	      				<p class="card-text">Quisque sollicitudin enim sit amet urna porttitor pellentesque. Donec urna elit, hendrerit non mauris a fusce.</p>
