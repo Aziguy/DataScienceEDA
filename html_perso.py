@@ -11,7 +11,7 @@ def entete_de_page():
   		<h1 class="display-4">Google PlayStore</h1>
   		<p class="lead">Exploratory Data Analysis (EDA) & Machine learning</p>
   		<hr class="my-4">
-  		<p>Cette application met en exergue l'analyse exploiratoire du dataset contenant l'ensemble des applications androids issue de l'apps store. Cette base contient 13 colonnes parmi lesquelles nous pouvons citer : catergory, rating, size, etc.</p>
+  		<p>Cette application met en exergue l'analyse exploiratoire du dataset contenant l'ensemble des applications androids issue du play store. Cette base contient 13 colonnes parmi lesquelles nous pouvons citer : catergory, rating, size, etc. La variable à expliquer (target) ici est <b>Rating</b></p>
   		<a class="btn btn-primary btn-lg" href="https://www.kaggle.com/lava18/google-play-store-apps" target="_blank" role="button">En savoir plus</a>
       </div>
       <!-- Code for the blockquote -->
@@ -21,10 +21,10 @@ def entete_de_page():
 	  </blockquote>
       <!-- Code for the first row card with image rounded -->
       <div class="container-fluid">
-      <div class="row">
+      <div class="row justify-content-center">
 	      	<div class="card-deck">
 	  			<!-- Code for the first card -->
-	  			<div class="card">
+	  			<div class="card" style="width: 18rem;">
 	    			<img class="card-img-top rounded-circle img-fluid" src="https://media-exp1.licdn.com/dms/image/C4D03AQEBVt38g3B3rg/profile-displayphoto-shrink_200_200/0?e=1610582400&v=beta&t=FGc4F0Q2Mxb2UqMIWQdjVY-ekT980AxJY4ztpjM3e0M" alt="...">
 	    			<div class="card-body">
 	      				<h5 class="card-title">Esteban Bara</h5>
@@ -33,16 +33,16 @@ def entete_de_page():
 	    			</div>
 	  			</div>
 	  			<!-- Code for the second card -->
-	  			<div class="card">
+	  			<div class="card" style="width: 18rem;">
 	    			<img class="card-img-top rounded-circle img-fluid" src="https://media-exp1.licdn.com/dms/image/C4D03AQGy8yFqIR9T7Q/profile-displayphoto-shrink_200_200/0?e=1610582400&v=beta&t=yAIhvxin6p0OOJxaqFsiUN0bU_Me97mKLuZ9eSZdAqY" alt="...">
 	    			<div class="card-body">
 	      				<h5 class="card-title">Gervais Kituanga</h5>
-	      				<p class="card-text">Nullam in tristique sapien, a accumsan mi. Nulla efficitur sapien vel lorem pulvinar luctus. Nulla erat curae.</p>
+	      				<p class="card-text">Nullam in tristique sapien, a accumsan mi. Nulla efficitur sapien vel lorem pulvinar luctus. Nulla erat curae. Nulla erat curae.</p>
 	      				<a href="https://www.linkedin.com/in/gervais-kituanga-mitimiti/" target="_blank" class="btn btn-primary">Mon profil</a>
 	    			</div>
 	  			</div>
 	  			<!-- Code for the third card -->
-	  			<div class="card">
+	  			<div class="card" style="width: 18rem;">
 	    			<img class="card-img-top rounded-circle img-fluid" src="https://media-exp1.licdn.com/dms/image/C5603AQGR0FvgXG3Wpw/profile-displayphoto-shrink_200_200/0?e=1610582400&v=beta&t=ITFov0I8NubvPNuHHxc1c3j4-QiqglU0Nx7qS_sHNJM" alt="...">
 	    			<div class="card-body">
 	      				<h5 class="card-title">Thomas Touil</h5>
@@ -54,32 +54,23 @@ def entete_de_page():
 	  </div>
 	  </br>
 	  <!-- Code for the second row card with image rounded -->
-      <div class="row">
+      <div class="row justify-content-center">
 	      	<div class="card-deck">
 	  			<!-- Code for the first card -->
-	  			<div class="card">
+	  			<div class="card" style="width: 18rem;">
 	    			<img class="card-img-top rounded-circle img-fluid" src="https://www.w3schools.com/bootstrap4/img_avatar1.png" alt="...">
 	    			<div class="card-body">
-	      				<h5 class="card-title">Card title</h5>
-	      				<p class="card-text">Vivamus tincidunt nulla ac aliquet scelerisque. Praesent a lacus urna. Mauris libero dolor, dapibus at lectus.</p>
+	      				<h5 class="card-title">Abdou Aziz Ziza</h5>
+	      				<p class="card-text">Vivamus tincidunt nulla ac aliquet scelerisque. Praesent a lacus urna. Mauris libero dolor...</p>
 	      				<a href="#" target="_blank" class="btn btn-primary">Mon profil</a>
 	    			</div>
 	  			</div>
 	  			<!-- Code for the second card -->
-	  			<div class="card">
-	    			<img class="card-img-top rounded-circle" src="https://www.w3schools.com/bootstrap4/img_avatar1.png" alt="...">
-	    			<div class="card-body">
-	      				<h5 class="card-title">Card title</h5>
-	      				<p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-	      				<a href="#" target="_blank" class="btn btn-primary">Mon profil</a>
-	    			</div>
-	  			</div>
-	  			<!-- Code for the third card -->
-	  			<div class="card">
+	  			<div class="card" style="width: 18rem;">
 	    			<img class="card-img-top rounded-circle img-fluid" src="https://media-exp1.licdn.com/dms/image/C4D03AQG01Lpt4F1BXw/profile-displayphoto-shrink_200_200/0?e=1610582400&v=beta&t=qB5dH88GAvxqNZNsrOzftF7wma9raAUYoyXNS5o-8PA" alt="...">
 	    			<div class="card-body">
 	      				<h5 class="card-title">Hippolyte KENGNI</h5>
-	      				<p class="card-text">Sed suscipit pretium massa vel pretium. Nullam lacinia aliquam nunc, mattis consectetur risus aliquet vel dui.</p>
+	      				<p class="card-text">Après moi c'est moi ; avant moi c'est toujours moi ; après après moi c'est le virage...</p>
 	      				<a href="https://www.linkedin.com/in/hippolyte-kengni-%F0%9F%93%8A%F0%9F%93%88-984808198/" target="_blank" class="btn btn-primary">Mon profil</a>
 	    			</div>
 	  			</div>
@@ -184,11 +175,11 @@ def pied_de_page():
 								<div class="col-sm-4 col-6 myphoto-sign text-center">
 									<img src="https://demo.w3layouts.com/demos_new/template_demo/23-03-2019/client-demo_Free/2146656123/web/images/myphoto.jpg" alt="" class="img-fluid rounded-circle"/>
 									<img src="https://demo.w3layouts.com/demos_new/template_demo/23-03-2019/client-demo_Free/2146656123/web/images/signature.png" alt="" class="img-fluid mt-3"/>
-									<a href="#contact" class="scroll abt-btn">Hire Me </a>
+									<a href="http://www.ingemedia.net/formation/master/data-analytics-strategie-information" target="_blank" class="scroll abt-btn">Hire Me </a>
 								</div>
 								<div class="col-sm-7 offset-lg-1">
 									<h4>Personal Info</h4>
-									<p>Hello, My name is <strong>John Doe</strong>. I am 10 years experienced <strong>BerceauMaqique</strong></p>
+									<p>Hello, Our name is <strong>Group I </strong>. We have 10 years experienced <strong>BerceauMaqique</strong></p>
 									<h4 class="mt-4">Skills & Abilities</h4>
 									<div class="progress-one mt-3">
 										<h4 class="progress-tittle">Data Analytics</h4>
@@ -212,7 +203,7 @@ def pied_de_page():
 							</div>
 						</div>
 					</div>
-					<h3 class="position">About __</h3>
+					<h3 class="position">About Us</h3>
 				</div>
 		    </div>
 		</section>
