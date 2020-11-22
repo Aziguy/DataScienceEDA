@@ -133,5 +133,6 @@ wcwidth==0.2.5
 webencodings==0.5.1
 Werkzeug==1.0.1
 widgetsnbextension==3.5.1
+wordcloud==1.8.1
 xarray==0.16.1
 yarg==0.1.9

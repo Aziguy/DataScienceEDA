@@ -23,5 +23,14 @@ def lire_dataset(dataset):
 	df = pd.read_csv(os.path.join(dataset))
 	return df
 
+@st.cache(persist=True)
+def merge_file(dataset1, dataset2):
+	temp1 = pd.read_csv(os.path.join(dataset1))
+	temp2 = pd.read_csv(os.path.join(dataset2))
+	dfword = pd.merge(temp1,temp2,on='App',how='outer')
+	#Drop rows with incomplete data
+	dfword.dropna(how ='any', inplace = True)
+	return dfword
+
 def nettoyage_db(dataset):
 	return db_clear

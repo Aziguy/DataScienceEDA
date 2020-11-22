@@ -24,10 +24,11 @@ MY_CONFIG = {'page_title': 'Data science', 'page_icon': img}
 st.set_page_config(**MY_CONFIG)
 my_db = "datas/googleplaystore.csv"
 my_db_clean = "datas/GooglePlayStore_Cleaned.csv"
+my_reviews = "datas/googleplaystore_user_reviews.csv"
 
 def main():
 	"""We're going to create a beautiful app with Streamlit"""
-	menu = ["Accueil", "Pandas Profile", "D-Tale", "Visualisation", "Machine Learning", "A propos"]
+	menu = ["Accueil", "Pandas Profile", "D-Tale", "Visualisation", "Nuage de mots", "Machine Learning", "A propos"]
 	selection = st.sidebar.selectbox("Fonctions", menu)
 
 	if selection == "Pandas Profile":
@@ -77,6 +78,18 @@ def main():
 		group_labels = ['Rating']
 		fig = ff.create_distplot(hist_data, group_labels)
 		hist1.plotly_chart(fig)
+	elif selection == "Nuage de mots":
+		img1,img2 = st.beta_columns(2)
+		img1.image('datas/wordcloud/general.png')
+		img2.image('datas/wordcloud/free_app.png')
+		img3,img4 = st.beta_columns(2)
+		img3.image('datas/wordcloud/free_app_pos.png')
+		img4.image('datas/wordcloud/free_app_neg.png')
+		img5,img6 = st.beta_columns(2)
+		img5.image('datas/wordcloud/paid_app.png')
+		img6.image('datas/wordcloud/paid_app_pos.png')
+		img7,img8 = st.beta_columns(2)
+		img7.image('datas/wordcloud/paid_app_neg.png')
 	elif selection == "Machine Learning":
 		image = Image.open('machine learning.jpg')
 		col1,col2 = st.beta_columns([3,1])
