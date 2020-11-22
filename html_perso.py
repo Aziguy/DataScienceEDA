@@ -6,14 +6,48 @@ def entete_de_page():
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	  <!-- Code for the jumbotron -->
+	  <!-- Code for the jumbotron and modal class -->
 	  <div class="jumbotron">
   		<h1 class="display-4">Google PlayStore</h1>
   		<p class="lead">Exploratory Data Analysis (EDA) & Machine learning</p>
   		<hr class="my-4">
   		<p>Cette application met en exergue l'analyse exploiratoire du dataset contenant l'ensemble des applications androids issue du play store. Cette base contient 13 colonnes parmi lesquelles nous pouvons citer : catergory, rating, size, etc. La variable à expliquer (target) ici est <b>Rating</b></p>
-  		<a class="btn btn-primary btn-lg" href="https://www.kaggle.com/lava18/google-play-store-apps" target="_blank" role="button">En savoir plus</a>
+  		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-eye-open" aria-hidden="true"></i> Voir Détails </button>
+      	<!-- The Modal -->
+  		<div class="modal fade" id="myModal">
+    		<div class="modal-dialog">
+      			<div class="modal-content">
+        		<!-- Modal Header -->
+        			<div class="modal-header">
+          				<h4 class="modal-title">Détails du jeux de données</h4>
+          				<button type="button" class="close" data-dismiss="modal">&times;</button>
+        			</div>
+        		<!-- Modal body -->
+        			<div class="modal-body">
+          				<p><b>App :</b> Nom de l'application.</br>
+          				<b>Category :</b> Catégorie d'appartenance de chaque application.</br>
+          				<b>Rating :</b> Note attribué à chaque application (de 1.0 à 5.0).</br>
+          				<b>Reviews :</b> Nombre de commentaire sur l'application.</br>
+          				<b>Size :</b> Taille de l'application (en Mb).</br>
+          				<b>Installs :</b> Nombre de fois que l'application a été installé.</br>
+          				<b>Type :</b> Application payante ou gratuite.</br>
+          				<b>Price :</b> Prix de l'application.</br>
+          				<b>Content rating :</b> Cible de l'application (Tout le monde, Enfants, Adult, ...</br>
+          				<b>Genres :</b> Le genre de l'application.</br>
+          				<b>Last updated :</b> Dernière mise à jour de l'application.</br>
+          				<b>Current Ver :</b> Version de l'application disponible dans le PlayStore.</br>
+          				<b>Android Ver :</b> Version minimum d'android pour l'installation de l'application.
+          				</p>
+        			</div>
+        		<!-- Modal footer -->
+        			<div class="modal-footer">
+          				<button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+        			</div>
+      			</div>
+    		</div>
+  		</div>
       </div>
+      <!-- END of The Modal -->
       <!-- Code for the blockquote -->
       <blockquote class="blockquote text-center">
   		<p class="mb-0">Team data analytics | data scientist en devenir.</p>
@@ -175,7 +209,7 @@ def pied_de_page():
 								<div class="col-sm-4 col-6 myphoto-sign text-center">
 									<img src="https://demo.w3layouts.com/demos_new/template_demo/23-03-2019/client-demo_Free/2146656123/web/images/myphoto.jpg" alt="" class="img-fluid rounded-circle"/>
 									<img src="https://demo.w3layouts.com/demos_new/template_demo/23-03-2019/client-demo_Free/2146656123/web/images/signature.png" alt="" class="img-fluid mt-3"/>
-									<a href="http://www.ingemedia.net/formation/master/data-analytics-strategie-information" target="_blank" class="scroll abt-btn">Hire Me </a>
+									<a href="http://www.ingemedia.net/formation/master/data-analytics-strategie-information" target="_blank" class="scroll abt-btn">Hire Us </a>
 								</div>
 								<div class="col-sm-7 offset-lg-1">
 									<h4>Personal Info</h4>
