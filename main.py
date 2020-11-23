@@ -4,6 +4,7 @@ import html_alert as ha
 import utils
 import streamlit as st
 import pandas as pd
+import numpy as np
 from streamlit_pandas_profiling import st_profile_report
 from pandas_profiling import ProfileReport 
 from PIL import Image
@@ -78,13 +79,20 @@ def main():
 		group_labels = ['Rating']
 		fig = ff.create_distplot(hist_data, group_labels)
 		hist1.plotly_chart(fig)
+		counts, bins = np.histogram(datas.Rating, bins=range(0, 6, 1))
+		bins = 0.5 * (bins[:-1] + bins[1:])
+		fig = px.bar(x=bins, y=counts, labels={'x':'Rating', 'y':'Count'}, title='Distribution des notes')
+		hist2.plotly_chart(fig)
 	elif selection == "Nuage de mots":
+		# General
 		img1,img2 = st.beta_columns(2)
 		img1.image('datas/wordcloud/general.png')
 		img2.image('datas/wordcloud/free_app.png')
+		# Free App
 		img3,img4 = st.beta_columns(2)
 		img3.image('datas/wordcloud/free_app_pos.png')
 		img4.image('datas/wordcloud/free_app_neg.png')
+		# Paid app
 		img5,img6 = st.beta_columns(2)
 		img5.image('datas/wordcloud/paid_app.png')
 		img6.image('datas/wordcloud/paid_app_pos.png')
@@ -108,9 +116,15 @@ def main():
 		if st.checkbox("Afficher DB ok"):
 			datas = utils.lire_dataset(my_db_clean)
 			st.write(datas.head())
+			mat1,mat2 = st.beta_columns(2)
 			fig = px.scatter_matrix(datas, dimensions=["Rating", "Reviews", "Size", "Installs", "Price"], color="Type", symbol="Type", title="Matrix de dispersion des variables continues")
 			fig.update_traces(diagonal_visible=False)
-			st.plotly_chart(fig)
+			mat1.plotly_chart(fig)
+			fig = px.imshow(datas[["Rating", "Reviews", "Size", "Installs", "Price"]].corr(),labels=dict(x="", y="", color="Corrélation"),)
+			mat2.plotly_chart(fig)
+		if st.checkbox("Make model"):
+			mon_score = utils.transform_var_model(my_db_clean)
+			st.success(mon_score)
 	elif selection == "A propos":
 		#st.subheader("Team presentation")
 		components.html(hp.pied_de_page(),height=800)
