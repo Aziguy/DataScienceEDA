@@ -123,7 +123,8 @@ def main():
 			fig = px.imshow(datas[["Rating", "Reviews", "Size", "Installs", "Price"]].corr(),labels=dict(x="", y="", color="Corrélation"),)
 			mat2.plotly_chart(fig)
 		if st.checkbox("Make model"):
-			mon_score = utils.transform_var_model(my_db_clean)
+			#mon_score = utils.transform_var_model(my_db_clean)
+			mon_score = utils.make_model(my_db_clean)
 			st.success(mon_score)
 	elif selection == "A propos":
 		#st.subheader("Team presentation")

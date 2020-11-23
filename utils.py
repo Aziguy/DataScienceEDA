@@ -17,6 +17,7 @@ from sklearn.compose import make_column_selector
 from sklearn.preprocessing import LabelEncoder, LabelBinarizer, OrdinalEncoder, OneHotEncoder
 from sklearn.pipeline import make_pipeline
 from sklearn.linear_model import SGDClassifier
+from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
 #Mes méthodes utiles
 """
@@ -49,9 +50,10 @@ def nettoyage_db(dataset):
 @st.cache(persist=True)
 def transform_var_model(my_db):
 	df = pd.read_csv(os.path.join(my_db))
-	X = df
-	y = df["Rating"]
+	X = df[["Category","Type", "Genres", "Content Rating", "Android Ver"]]
+	y = df["Rating"].apply(int)
 	X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=5)
+	# Pipelinne transformer
 	var_cat = ["Category","Type", "Genres", "Content Rating", "Android Ver"]
 	var_num = ["Rating", "Reviews", "Size", "Installs", "Price"]
 	numerical_pipeline = make_pipeline(SimpleImputer(), StandardScaler())
@@ -64,9 +66,11 @@ def transform_var_model(my_db):
 	return le_score
 
 # Créer mon model
-def make_model(my_db, my_db_target):
-	X = my_db
-	y = my_db_target
+@st.cache(persist=True)
+def make_model(my_db):
+	df = pd.read_csv(os.path.join(my_db))
+	X = df[["Reviews", "Size", "Installs", "Price"]]
+	y = df["Rating"].apply(int)
 	X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=5)
 	# Model
 	model = KNeighborsClassifier(n_neighbors=3)
