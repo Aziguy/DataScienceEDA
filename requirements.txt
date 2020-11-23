@@ -111,7 +111,7 @@ sklearn==0.0
 smmap==3.0.4
 squarify==0.4.3
 statsmodels==0.12.1
-streamlit==0.70.0
+streamlit==0.71.0
 streamlit-pandas-profiling==0.0.6
 strsimpy==0.1.9
 sweetviz==1.1.2
