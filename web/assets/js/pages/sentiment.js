@@ -43,7 +43,7 @@ function renderPrediction(classifier, text) {
             style: `width:${(result.proba[i] * 100).toFixed(1)}%;background:${color(label, t)}`,
           }),
         ]),
-        el("span", { class: "mono num", style: "text-align:right", text: fmt.pct(result.proba[i], 0) }),
+        el("span", { class: "proba-value", text: fmt.pct(result.proba[i], 0) }),
       ]),
     ),
   );
@@ -52,7 +52,7 @@ function renderPrediction(classifier, text) {
     .sort((a, b) => Math.abs(b.weight) - Math.abs(a.weight))
     .slice(0, 8);
   $("tokens").replaceChildren(
-    el("div", { class: "label muted mono", style: "font-size:11px", text: "TERMES DÉCISIFS" }),
+    el("div", { class: "label kpi-label", text: "TERMES DÉCISIFS" }),
     ...top.map((c) =>
       el("span", {
         class: "token mono",
@@ -93,7 +93,7 @@ function renderByCategory(data) {
       label: {
         show: key === "Positive",
         position: "insideLeft",
-        color: "#ffffff",
+        color: t.dark ? "#ffffff" : "#0b1020",
         fontFamily: t.mono,
         fontSize: 11,
         formatter: (p) => fmt.pct(p.value, 0),

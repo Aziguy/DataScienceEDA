@@ -550,6 +550,10 @@ main {
   height: 240px;
 }
 
+.chart-xl {
+  height: 560px;
+}
+
 .tag {
   display: inline-flex;
   align-items: center;
@@ -949,6 +953,12 @@ td.app-name {
   font-size: 14px;
 }
 
+.proba-value {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
 .proba-bar {
   height: 10px;
   border-radius: 0 4px 4px 0;
@@ -1097,6 +1107,45 @@ td.app-name {
 
 .muted {
   color: var(--muted);
+}
+
+.note {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.gap-top {
+  margin-top: 16px;
+}
+
+.gap-top-sm {
+  margin-top: 12px;
+}
+
+.subsection {
+  margin-top: 24px;
+}
+
+.subsection h2 {
+  font-size: 18px;
+}
+
+.grow-2 {
+  flex: 2 1 220px;
+}
+
+.grow-1 {
+  flex: 1 1 200px;
+}
+
+.grow-1.narrow {
+  flex-basis: 160px;
+}
+
+.btn-sm {
+  height: 34px;
+  padding: 0 12px;
 }
 
 .loading {

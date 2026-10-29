@@ -30,7 +30,7 @@
 <section class="section">
   <div class="grid">
     <article class="card span-7">
-      <div class="card-head"><div><h3>Caractéristiques</h3><p>Valeurs par défaut : application médiane</p></div><button class="btn" id="reset" type="button" style="height:34px">Réinitialiser</button></div>
+      <div class="card-head"><div><h3>Caractéristiques</h3><p>Valeurs par défaut : application médiane</p></div><button class="btn btn-sm" id="reset" type="button">Réinitialiser</button></div>
       <form class="form-grid" id="predict-form" onsubmit="return false">
         <div class="field"><label for="p-category">Catégorie</label><select class="input" id="p-category" name="category"></select></div>
         <div class="field"><label for="p-content">Public</label><select class="input" id="p-content" name="content_rating"></select></div>
@@ -49,7 +49,7 @@
       <div class="stars" aria-hidden="true"><span id="stars"></span></div>
       <div class="meter" aria-hidden="true"><div class="meter-fill" id="meter"></div><div class="meter-mark" id="meter-mark"></div></div>
       <div class="compare-row" id="compare"></div>
-      <p class="muted" style="margin-top:16px;font-size:13px" id="score-note"></p>
+      <p class="note" id="score-note"></p>
     </article>
   </div>
 </section>
@@ -57,7 +57,7 @@
 <section class="section">
   <div class="section-head"><h2>Performance</h2><p>Validation croisée à 5 plis, puis évaluation sur un jeu de test de 20 %.</p></div>
   <div class="kpis" id="model-kpis"></div>
-  <div class="grid" style="margin-top:16px">
+  <div class="grid gap-top">
     <article class="card span-6">
       <div class="card-head"><div><h3>Comparaison des modèles</h3><p>Erreur absolue moyenne en validation croisée (plus bas = meilleur)</p></div></div>
       <div class="chart" id="chart-compare" role="img" aria-label="Comparaison des modèles"></div>
@@ -75,7 +75,7 @@
       <ul class="list" id="model-card"></ul>
     </article>
   </div>
-  <div class="section-head" style="margin-top:24px"><h2 style="font-size:18px">Tableau comparatif</h2></div>
+  <div class="section-head subsection"><h2>Tableau comparatif</h2></div>
   <div class="table-wrap"><table id="compare-table"></table></div>
 </section>
 </main>

@@ -29,8 +29,8 @@
 
 <section class="section card" aria-label="Filtres">
   <form class="filters" id="filters" onsubmit="return false">
-    <div class="field" style="flex:2 1 220px"><label for="f-search">Recherche</label><input class="input" id="f-search" type="search" placeholder="Nom de l'application"></div>
-    <div class="field" style="flex:1 1 200px"><label for="f-category">Catégorie</label><select class="input" id="f-category"><option value="">Toutes</option></select></div>
+    <div class="field grow-2"><label for="f-search">Recherche</label><input class="input" id="f-search" type="search" placeholder="Nom de l'application"></div>
+    <div class="field grow-1"><label for="f-category">Catégorie</label><select class="input" id="f-category"><option value="">Toutes</option></select></div>
     <div class="field"><span class="label">Modèle</span>
       <div class="segmented" id="f-type" role="group" aria-label="Modèle économique">
         <button type="button" data-value="" aria-pressed="true">Tous</button>
@@ -38,7 +38,7 @@
         <button type="button" data-value="paid" aria-pressed="false">Payant</button>
       </div>
     </div>
-    <div class="field" style="flex:1 1 160px"><label for="f-rating">Note minimale <output id="f-rating-out">1.0</output></label><input id="f-rating" type="range" min="1" max="5" step="0.1" value="1"></div>
+    <div class="field grow-1 narrow"><label for="f-rating">Note minimale <output id="f-rating-out">1.0</output></label><input id="f-rating" type="range" min="1" max="5" step="0.1" value="1"></div>
   </form>
 </section>
 
