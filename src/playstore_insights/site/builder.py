@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 import os
 import shutil
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 import numpy as np
@@ -66,7 +66,7 @@ def build_site(paths: Paths = PATHS, coverage: float | None = None) -> Path:
         data_dir / "meta.json",
         {
             "version": __version__,
-            "built_at": datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "built_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "commit": os.environ.get("GITHUB_SHA", "local")[:7],
         },
     )
