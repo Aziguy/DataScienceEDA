@@ -32,7 +32,7 @@ jobs:
         run: pytest --cov
       - name: Build site
         run: playstore-insights all --coverage "$(coverage report --format=total)"
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v3
         with:
           path: build/site
