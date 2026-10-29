@@ -86,3 +86,7 @@ def save_artifacts(result: PipelineResult, out: Path) -> None:
         {"rating": result.rating.summary(), "sentiment": result.sentiment.summary()},
     )
     write_json(out / "dashboard.json", dashboard_payload(result))
+    sample = result.rating.predictions.sample(
+        min(800, len(result.rating.predictions)), random_state=0
+    )
+    write_json(out / "predictions.json", sample.to_dict(orient="split")["data"])

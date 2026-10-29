@@ -21,3 +21,13 @@ def test_cli_rejects_unknown_command(capsys):
 
     with pytest.raises(SystemExit):
         cli.main(["unknown"])
+
+
+def test_cli_dispatches(monkeypatch):
+    calls = []
+    monkeypatch.setattr(pipeline, "run", lambda paths, compare: calls.append(("train", compare)))
+    import playstore_insights.site as site
+
+    monkeypatch.setattr(site, "build_site", lambda _, coverage: calls.append(("site", coverage)))
+    assert cli.main(["all", "--fast", "--coverage", "88"]) == 0
+    assert calls == [("train", False), ("site", 88.0)]

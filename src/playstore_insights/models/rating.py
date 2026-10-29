@@ -15,7 +15,7 @@ from sklearn.neighbors import KNeighborsRegressor
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 
-from ..config import RANDOM_STATE
+from ..config import RANDOM_STATE, REFERENCE_DATE
 from ..features import Feature, add_derived, build_spec, spec_to_dict, transform
 from .export import export_gradient_boosting
 
@@ -131,6 +131,7 @@ def train_rating_model(apps: pd.DataFrame, compare: bool = True) -> RatingReport
     )
     metadata = {
         "target": "rating",
+        "reference_date": REFERENCE_DATE,
         "n_train": len(idx_train),
         "n_test": len(idx_test),
         "n_features": len(spec),
