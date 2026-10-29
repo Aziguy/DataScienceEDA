@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modèle · Playstore Insights</title>
+  <meta name="description" content="Prédisez la note d'une application Android avec un modèle de gradient boosting exécuté dans le navigateur.">
+  <meta name="theme-color" content="#05070d">
+  <meta property="og:title" content="Modèle · Playstore Insights">
+  <meta property="og:description" content="Prédisez la note d'une application Android avec un modèle de gradient boosting exécuté dans le navigateur.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&family=Space+Grotesk:wght@500;600&display=swap">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <script>try{const t=localStorage.getItem("psi-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+  <script defer src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+  <script type="module" src="assets/js/lib/layout.js"></script>
+  <script type="module" src="assets/js/pages/model.js"></script>
+</head>
+<body>
+<main id="main" class="container">
+<section class="hero">
+  <span class="eyebrow">Machine Learning · Régression</span>
+  <h1>Prédire la note <span class="gradient-text">d'une application.</span></h1>
+  <p class="lead">Un modèle de gradient boosting (400 arbres) exporté en JSON et évalué dans le navigateur. Modifiez les caractéristiques de l'application, la prédiction se met à jour instantanément.</p>
+</section>
+
+<section class="section">
+  <div class="grid">
+    <article class="card span-7">
+      <div class="card-head"><div><h3>Caractéristiques</h3><p>Valeurs par défaut : application médiane</p></div><button class="btn" id="reset" type="button" style="height:34px">Réinitialiser</button></div>
+      <form class="form-grid" id="predict-form" onsubmit="return false">
+        <div class="field"><label for="p-category">Catégorie</label><select class="input" id="p-category" name="category"></select></div>
+        <div class="field"><label for="p-content">Public</label><select class="input" id="p-content" name="content_rating"></select></div>
+        <div class="field"><label for="p-installs">Installations</label><select class="input" id="p-installs" name="installs"></select></div>
+        <div class="field"><label for="p-reviews">Nombre d'avis</label><input class="input" id="p-reviews" name="reviews" type="number" min="0" step="1"></div>
+        <div class="field"><label for="p-size">Taille (Mo)</label><input class="input" id="p-size" name="size_mb" type="number" min="0" step="0.1"></div>
+        <div class="field"><label for="p-price">Prix (USD)</label><input class="input" id="p-price" name="price" type="number" min="0" step="0.01"></div>
+        <div class="field"><label for="p-updated">Dernière mise à jour</label><input class="input" id="p-updated" name="last_updated" type="date"></div>
+        <div class="field"><label for="p-android">Android minimum</label><select class="input" id="p-android" name="android_min"></select></div>
+        <div class="field full"><label for="p-genres">Nombre de genres <output id="p-genres-out">1</output></label><input id="p-genres" name="n_genres" type="range" min="1" max="2" step="1"></div>
+      </form>
+    </article>
+    <article class="card span-5">
+      <div class="card-head"><div><h3>Note prédite</h3><p>Sur 5 étoiles</p></div><span class="tag" id="model-tag"></span></div>
+      <div class="score" aria-live="polite"><span class="score-value num" id="score">-</span><span class="score-unit">/ 5</span></div>
+      <div class="stars" aria-hidden="true"><span id="stars"></span></div>
+      <div class="meter" aria-hidden="true"><div class="meter-fill" id="meter"></div><div class="meter-mark" id="meter-mark"></div></div>
+      <div class="compare-row" id="compare"></div>
+      <p class="muted" style="margin-top:16px;font-size:13px" id="score-note"></p>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>Performance</h2><p>Validation croisée à 5 plis, puis évaluation sur un jeu de test de 20 %.</p></div>
+  <div class="kpis" id="model-kpis"></div>
+  <div class="grid" style="margin-top:16px">
+    <article class="card span-6">
+      <div class="card-head"><div><h3>Comparaison des modèles</h3><p>Erreur absolue moyenne en validation croisée (plus bas = meilleur)</p></div></div>
+      <div class="chart" id="chart-compare" role="img" aria-label="Comparaison des modèles"></div>
+    </article>
+    <article class="card span-6">
+      <div class="card-head"><div><h3>Importance des variables</h3><p>Réduction d'impureté, variables one-hot regroupées</p></div></div>
+      <div class="chart" id="chart-importance" role="img" aria-label="Importance des variables"></div>
+    </article>
+    <article class="card span-7">
+      <div class="card-head"><div><h3>Prédit et observé</h3><p>Échantillon du jeu de test</p></div></div>
+      <div class="chart chart-lg" id="chart-pred" role="img" aria-label="Notes prédites et observées"></div>
+    </article>
+    <article class="card span-5 stack">
+      <div class="card-head"><div><h3>Carte du modèle</h3><p>Usage et limites</p></div></div>
+      <ul class="list" id="model-card"></ul>
+    </article>
+  </div>
+  <div class="section-head" style="margin-top:24px"><h2 style="font-size:18px">Tableau comparatif</h2></div>
+  <div class="table-wrap"><table id="compare-table"></table></div>
+</section>
+</main>
+</body>
+</html>
