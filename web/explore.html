@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exploration · Playstore Insights</title>
+  <meta name="description" content="Explorez les 9 600 applications du Play Store : filtres, tri, corrélations et statistiques par catégorie.">
+  <meta name="theme-color" content="#05070d">
+  <meta property="og:title" content="Exploration · Playstore Insights">
+  <meta property="og:description" content="Explorez les 9 600 applications du Play Store : filtres, tri, corrélations et statistiques par catégorie.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&family=Space+Grotesk:wght@500;600&display=swap">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <script>try{const t=localStorage.getItem("psi-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+  <script defer src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+  <script type="module" src="assets/js/lib/layout.js"></script>
+  <script type="module" src="assets/js/pages/explore.js"></script>
+</head>
+<body>
+<main id="main" class="container">
+<section class="hero">
+  <span class="eyebrow">Exploration</span>
+  <h1>Explorer <span class="gradient-text">le catalogue.</span></h1>
+  <p class="lead">Filtrez les applications par catégorie, modèle économique et note. Le tableau, le nuage de points et les indicateurs se mettent à jour ensemble.</p>
+</section>
+
+<section class="section card" aria-label="Filtres">
+  <form class="filters" id="filters" onsubmit="return false">
+    <div class="field grow-2"><label for="f-search">Recherche</label><input class="input" id="f-search" type="search" placeholder="Nom de l'application"></div>
+    <div class="field grow-1"><label for="f-category">Catégorie</label><select class="input" id="f-category"><option value="">Toutes</option></select></div>
+    <div class="field"><span class="label">Modèle</span>
+      <div class="segmented" id="f-type" role="group" aria-label="Modèle économique">
+        <button type="button" data-value="" aria-pressed="true">Tous</button>
+        <button type="button" data-value="free" aria-pressed="false">Gratuit</button>
+        <button type="button" data-value="paid" aria-pressed="false">Payant</button>
+      </div>
+    </div>
+    <div class="field grow-1 narrow"><label for="f-rating">Note minimale <output id="f-rating-out">1.0</output></label><input id="f-rating" type="range" min="1" max="5" step="0.1" value="1"></div>
+  </form>
+</section>
+
+<section class="section">
+  <div class="kpis" id="explore-kpis"></div>
+</section>
+
+<section class="section">
+  <div class="grid">
+    <article class="card span-12">
+      <div class="card-head"><div><h3>Applications</h3><p id="table-caption">Cliquez sur un en-tête pour trier</p></div></div>
+      <div class="table-wrap"><table id="apps-table"></table></div>
+      <div class="pager"><span id="pager-info"></span><div class="pager-buttons"><button class="btn" id="prev" type="button">Précédent</button><button class="btn" id="next" type="button">Suivant</button></div></div>
+    </article>
+    <article class="card span-7">
+      <div class="card-head"><div><h3>Taille et note</h3><p>Échantillon filtré, taille en Mo (échelle log)</p></div></div>
+      <div class="chart chart-lg" id="chart-scatter" role="img" aria-label="Nuage de points taille et note"></div>
+    </article>
+    <article class="card span-5">
+      <div class="card-head"><div><h3>Corrélations de Spearman</h3><p>Avis et installations en log</p></div></div>
+      <div class="chart chart-lg" id="chart-corr" role="img" aria-label="Matrice de corrélation"></div>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>Statistiques par catégorie</h2><p>Note moyenne, installations médianes et part d'applications payantes.</p></div>
+  <div class="table-wrap"><table id="category-table"></table></div>
+</section>
+</main>
+</body>
+</html>

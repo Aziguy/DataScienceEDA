@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Méthodologie · Playstore Insights</title>
+  <meta name="description" content="Méthodologie, qualité des données, stack technique et équipe du projet Playstore Insights.">
+  <meta name="theme-color" content="#05070d">
+  <meta property="og:title" content="Méthodologie · Playstore Insights">
+  <meta property="og:description" content="Méthodologie, qualité des données, stack technique et équipe du projet Playstore Insights.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&family=Space+Grotesk:wght@500;600&display=swap">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <script>try{const t=localStorage.getItem("psi-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+  <script defer src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+  <script type="module" src="assets/js/lib/layout.js"></script>
+  <script type="module" src="assets/js/pages/about.js"></script>
+</head>
+<body>
+<main id="main" class="container">
+<section class="hero">
+  <span class="eyebrow">Méthodologie</span>
+  <h1>Du CSV brut <span class="gradient-text">au tableau de bord.</span></h1>
+  <p class="lead">Un pipeline Python reproductible produit les données, entraîne les modèles et exporte tout en JSON. Le site est statique, versionné et redéployé à chaque push.</p>
+</section>
+
+<section class="section">
+  <div class="steps">
+    <article class="card step"><h3>Nettoyage</h3><p>Parsing typé des tailles, installations, prix et versions Android. Ligne corrompue écartée, doublons supprimés.</p></article>
+    <article class="card step"><h3>Exploration</h3><p>Agrégations par catégorie, palier d'installations, modèle économique et public cible.</p></article>
+    <article class="card step"><h3>Modélisation</h3><p>Comparaison de 5 modèles en validation croisée, gradient boosting retenu, export des arbres en JSON.</p></article>
+    <article class="card step"><h3>NLP</h3><p>TF-IDF sur unigrammes et bigrammes, régression logistique multinomiale sur 3 classes.</p></article>
+    <article class="card step"><h3>Publication</h3><p>GitHub Actions : lint, tests, couverture, génération du site et déploiement sur GitHub Pages.</p></article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="grid">
+    <article class="card span-6">
+      <div class="card-head"><div><h3>Rapport de qualité des données</h3><p>Généré à chaque build</p></div></div>
+      <div class="table-wrap"><table id="quality-table"></table></div>
+    </article>
+    <article class="card span-6">
+      <div class="card-head"><div><h3>Valeurs manquantes après nettoyage</h3><p>Par colonne</p></div></div>
+      <div class="chart" id="chart-missing" role="img" aria-label="Valeurs manquantes par colonne"></div>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>Stack technique</h2></div>
+  <div class="chips" id="stack"></div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>L'équipe</h2><p>Team data analytics, data scientists en devenir.</p></div>
+  <div class="team" id="team"></div>
+</section>
+
+<section class="section card">
+  <div class="card-head"><div><h3>Source des données</h3></div></div>
+  <p class="muted">Jeu de données public « Google Play Store Apps » (Lavanya Gupta, Kaggle), collecté en août 2018. Les résultats décrivent l'état du store à cette date.</p>
+</section>
+</main>
+</body>
+</html>

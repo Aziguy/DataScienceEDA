@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sentiment · Playstore Insights</title>
+  <meta name="description" content="Analyse de sentiment de 30 000 avis du Play Store, avec un classifieur exécuté dans le navigateur.">
+  <meta name="theme-color" content="#05070d">
+  <meta property="og:title" content="Sentiment · Playstore Insights">
+  <meta property="og:description" content="Analyse de sentiment de 30 000 avis du Play Store, avec un classifieur exécuté dans le navigateur.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&family=Space+Grotesk:wght@500;600&display=swap">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <script>try{const t=localStorage.getItem("psi-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+  <script defer src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+  <script type="module" src="assets/js/lib/layout.js"></script>
+  <script type="module" src="assets/js/pages/sentiment.js"></script>
+</head>
+<body>
+<main id="main" class="container">
+<section class="hero">
+  <span class="eyebrow">NLP · Analyse de sentiment</span>
+  <h1>Ce que disent <span class="gradient-text">les utilisateurs.</span></h1>
+  <p class="lead">Un classifieur TF-IDF et régression logistique entraîné sur près de 30 000 avis, exécuté localement dans votre navigateur. Aucun texte n'est envoyé à un serveur.</p>
+</section>
+
+<section class="section"><div class="kpis" id="sentiment-kpis"></div></section>
+
+<section class="section">
+  <div class="grid">
+    <article class="card span-7">
+      <div class="card-head"><div><h3>Analyseur en direct</h3><p>Écrivez un avis en anglais (langue d'entraînement)</p></div></div>
+      <div class="field"><label for="review-input">Avis</label><textarea class="input" id="review-input">This app is great, very easy to use and the new update fixed every crash. Love it!</textarea></div>
+      <div class="chips gap-top-sm" id="examples"></div>
+    </article>
+    <article class="card span-5">
+      <div class="card-head"><div><h3>Verdict</h3><p>Probabilités par classe</p></div></div>
+      <div class="verdict" id="verdict" aria-live="polite"></div>
+      <div class="proba" id="proba"></div>
+      <div class="tokens" id="tokens"></div>
+    </article>
+    <article class="card span-12">
+      <div class="card-head"><div><h3>Répartition du sentiment par catégorie</h3><p>Catégories avec au moins 100 avis, triées par part positive</p></div></div>
+      <div class="chart chart-xl" id="chart-sent-cat" role="img" aria-label="Sentiment par catégorie"></div>
+    </article>
+    <article class="card span-6">
+      <div class="card-head"><div><h3>Termes les plus positifs</h3><p>Coefficients du modèle</p></div></div>
+      <div class="chart" id="chart-terms-pos" role="img" aria-label="Termes positifs"></div>
+    </article>
+    <article class="card span-6">
+      <div class="card-head"><div><h3>Termes les plus négatifs</h3><p>Coefficients du modèle</p></div></div>
+      <div class="chart" id="chart-terms-neg" role="img" aria-label="Termes négatifs"></div>
+    </article>
+    <article class="card span-7">
+      <div class="card-head"><div><h3>Polarité des avis et note</h3><p id="polarity-caption">Applications avec au moins 20 avis</p></div></div>
+      <div class="chart" id="chart-polarity" role="img" aria-label="Polarité moyenne et note"></div>
+    </article>
+    <article class="card span-5">
+      <div class="card-head"><div><h3>Matrice de confusion</h3><p>Jeu de test, en lignes : classe réelle</p></div></div>
+      <div class="chart" id="chart-confusion" role="img" aria-label="Matrice de confusion"></div>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>Nuages de mots</h2><p>Visualisations historiques de la v1 du projet.</p></div>
+  <div class="gallery" id="gallery"></div>
+</section>
+</main>
+</body>
+</html>

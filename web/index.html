@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Playstore Insights</title>
+  <meta name="description" content="Tableau de bord interactif du Google Play Store : 9 600 applications, 30 000 avis, modèles de machine learning.">
+  <meta name="theme-color" content="#05070d">
+  <meta property="og:title" content="Playstore Insights">
+  <meta property="og:description" content="Tableau de bord interactif du Google Play Store : 9 600 applications, 30 000 avis, modèles de machine learning.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&family=Space+Grotesk:wght@500;600&display=swap">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <script>try{const t=localStorage.getItem("psi-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+  <script defer src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+  <script type="module" src="assets/js/lib/layout.js"></script>
+  <script type="module" src="assets/js/pages/dashboard.js"></script>
+</head>
+<body>
+<main id="main" class="container">
+<section class="hero">
+  <span class="eyebrow">Google Play Store · EDA &amp; Machine Learning</span>
+  <h1>Le Play Store, <span class="gradient-text">décodé par les données.</span></h1>
+  <p class="lead">Près de 10 000 applications Android et 30 000 avis analysés : nettoyage reproductible, exploration interactive, analyse de sentiment et prédiction de la note, directement dans votre navigateur.</p>
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="model.html">Prédire une note</a>
+    <a class="btn" href="explore.html">Explorer les applications</a>
+  </div>
+</section>
+
+<section class="section" aria-label="Indicateurs clés">
+  <div class="kpis" id="kpis"></div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <h2>Ce que révèlent les données</h2>
+  </div>
+  <div class="grid" id="insights"></div>
+</section>
+
+<section class="section">
+  <div class="grid">
+    <article class="card span-7">
+      <div class="card-head"><div><h3>Applications par catégorie</h3><p>15 catégories les plus représentées</p></div></div>
+      <div class="chart chart-lg" id="chart-categories" role="img" aria-label="Nombre d'applications par catégorie"></div>
+    </article>
+    <article class="card span-5">
+      <div class="card-head"><div><h3>Distribution des notes</h3><p>Pas de 0.1 étoile, applications notées</p></div></div>
+      <div class="chart chart-lg" id="chart-ratings" role="img" aria-label="Histogramme des notes"></div>
+    </article>
+    <article class="card span-6">
+      <div class="card-head"><div><h3>Applications par palier d'installations</h3><p>Volume du catalogue selon la popularité</p></div></div>
+      <div class="chart" id="chart-tiers" role="img" aria-label="Nombre d'applications par palier d'installations"></div>
+    </article>
+    <article class="card span-6">
+      <div class="card-head"><div><h3>Note moyenne par palier d'installations</h3><p>Les applications très installées sont mieux notées</p></div></div>
+      <div class="chart" id="chart-tier-rating" role="img" aria-label="Note moyenne par palier d'installations"></div>
+    </article>
+    <article class="card span-8">
+      <div class="card-head"><div><h3>Dernière mise à jour</h3><p>Nombre d'applications selon l'année de leur dernière mise à jour</p></div></div>
+      <div class="chart" id="chart-years" role="img" aria-label="Applications par année de mise à jour"></div>
+    </article>
+    <article class="card span-4">
+      <div class="card-head"><div><h3>Public cible</h3><p>Classification du contenu</p></div></div>
+      <div class="chart" id="chart-content" role="img" aria-label="Applications par classification du contenu"></div>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>Gratuit ou payant ?</h2><p>Comparaison des médianes : le modèle gratuit domine en audience, le payant en satisfaction.</p></div>
+  <div class="table-wrap"><table id="table-type"></table></div>
+</section>
+</main>
+</body>
+</html>
