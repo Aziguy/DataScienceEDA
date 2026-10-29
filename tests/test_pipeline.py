@@ -31,3 +31,11 @@ def test_cli_dispatches(monkeypatch):
     monkeypatch.setattr(site, "build_site", lambda _, coverage: calls.append(("site", coverage)))
     assert cli.main(["all", "--fast", "--coverage", "88"]) == 0
     assert calls == [("train", False), ("site", 88.0)]
+
+
+def test_root_falls_back_to_cwd(monkeypatch, tmp_path):
+    from playstore_insights import config
+
+    monkeypatch.setattr(config, "__file__", str(tmp_path / "a" / "b" / "config.py"))
+    monkeypatch.chdir(tmp_path)
+    assert config._default_root() == tmp_path

@@ -6,7 +6,13 @@ import os
 from dataclasses import dataclass
 from pathlib import Path
 
-ROOT = Path(os.environ.get("PLAYSTORE_ROOT", Path(__file__).resolve().parents[2]))
+
+def _default_root() -> Path:
+    source_root = Path(__file__).resolve().parents[2]
+    return source_root if (source_root / "data").is_dir() else Path.cwd()
+
+
+ROOT = Path(os.environ.get("PLAYSTORE_ROOT") or _default_root())
 RANDOM_STATE = 42
 REFERENCE_DATE = "2018-08-08"
 
